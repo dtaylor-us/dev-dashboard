@@ -50,14 +50,3 @@ jobs:
           file: ./github-service/src/main/docker/Dockerfile.jvm
           push: true
           tags: derektaylor/github-service:${{ github.sha }}
-
-      - name: Update Kubernetes manifests
-        run: |
-          sed -i "s/derektaylor\/github-service:[0-9a-f]*/derektaylor\/github-service:${{ github.sha }}/" ./github-service/kubernetes/deployment.yaml
-
-      - name: Commit updated manifests
-        run: |
-          git config --global user.email "github-actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git commit -am "Update image tag to ${{ github.sha }}"
-          git push
