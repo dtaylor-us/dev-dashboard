@@ -26,8 +26,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./app
-          file: ./app/Dockerfile.jvm
+          context: ./github-service  # Adjusted context
+          file: ./github-service/docker/Dockerfile.jvm  # Updated path to Dockerfile
           push: true
           tags: derektaylor/github-service:${{ github.sha }}
 
@@ -39,5 +39,6 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
-          git commit -am "Update image tag to ${{ github.sha }}"
+          git add kubernetes/deployment.yaml
+          git commit -m "Update image tag to ${{ github.sha }}"
           git push
