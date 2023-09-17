@@ -7,7 +7,7 @@ import jakarta.ws.rs.PathParam
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient
 
 @Path("/users")
-@RegisterRestClient(configKey = "github-api")
+@RegisterRestClient(baseUri = "https://api.github.com")
 @ApplicationScoped
 fun interface GithubApi {
     @GET
