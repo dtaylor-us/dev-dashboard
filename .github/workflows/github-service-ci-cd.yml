@@ -53,7 +53,7 @@ jobs:
 
       - name: Update Kubernetes manifests
         run: |
-          sed -i "s/derektaylor\/github-service:[0-9a-f]*/derektaylor\/github-service:${{ github.sha }}/" kubernetes/deployment.yaml
+          sed -i "s/derektaylor\/github-service:[0-9a-f]*/derektaylor\/github-service:${{ github.sha }}/" ./github-service/kubernetes/deployment.yaml
 
       - name: Commit updated manifests
         run: |
