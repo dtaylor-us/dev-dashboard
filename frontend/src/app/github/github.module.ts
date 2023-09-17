@@ -5,10 +5,10 @@ import {RepoDetailComponent} from './repo-detail/repo-detail.component';
 import {HttpClientModule} from '@angular/common/http';
 import {GithubService} from "./github.service";
 import {FormsModule} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
 import {GithubRoutingModule} from "./github-routing.module";
-
+import { SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -21,9 +21,9 @@ import {GithubRoutingModule} from "./github-routing.module";
     CommonModule,
     HttpClientModule,
     FormsModule,
+    InputTextModule,
+    ButtonModule,
     GithubRoutingModule,
-    MatInputModule,
-    MatButtonModule
   ]
 })
 export class GithubModule { }

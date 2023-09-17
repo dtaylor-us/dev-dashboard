@@ -1,10 +1,6 @@
-<!-- frontend/src/app/repo-list/repo-list.component.html -->
+<input placeholder="GitHub Username" type="text" pInputText [(ngModel)]="username" />
 
-<mat-form-field appearance="fill">
-  <mat-label>GitHub Username</mat-label>
-  <input matInput [(ngModel)]="username">
-</mat-form-field>
-<button mat-raised-button color="primary" (click)="fetchRepos()">Get Repos</button>
+<button pButton class="ml1" label="Get Repos" (click)="fetchRepos()"></button>
 
 <!-- Display the repos here -->
 <ul>

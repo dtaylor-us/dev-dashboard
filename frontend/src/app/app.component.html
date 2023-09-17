@@ -1,29 +1,16 @@
-<mat-sidenav-container class="sidenav-container">
-  <!-- Side Navigation (Collapsed on mobile, Expanded on Desktop) -->
-  <mat-sidenav #sidenav mode="side" opened>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/github" (click)="sidenav.toggle()">
-        <div class="icon-with-text">
-          <mat-icon>code</mat-icon>
-          <span>Github Repos</span>
-        </div>
-      </a>
-      <!-- Additional Navigation Links for other modules/microservices can be added here -->
-    </mat-nav-list>
-  </mat-sidenav>
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <button pButton icon="pi pi-bars" (click)="toggleMenu($event)"></button>
+    <p class="ml3 nav-title">Dashboard</p>
+  </div>
+  <div class="p-toolbar-group-end">
+    <p-button icon="pi pi-search" class="mr-2"></p-button>
+  </div>
+</p-toolbar>
 
-  <!-- Main Content Area -->
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Your App Name</span>
-    </mat-toolbar>
+<!-- Menu for the toggle -->
+<p-menu #menu [popup]="true" [model]="menuItems"></p-menu>
 
-    <!-- Main Router Outlet -->
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
