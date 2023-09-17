@@ -32,10 +32,11 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ${{ github.workspace }}/github-service/task-service
-          file: ${{ github.workspace }}/github-service/task-service/src/main/docker/Dockerfile.jvm
+          context: ./github-service
+          file: ./github-service/src/main/docker/Dockerfile.jvm
           push: true
           tags: derektaylor/github-service:${{ github.sha }}
+
 
       - name: Update Kubernetes manifests
         run: |
