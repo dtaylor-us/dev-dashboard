@@ -43,7 +43,7 @@ jobs:
       # Build a tag combining the Maven project version and a shortened commit SHA
       - name: Build Docker tag
         id: docker_tag
-        run: echo "::set-output name=tag::${{ steps.get_version.outputs.version }}-${{ github.sha:0:7 }}"
+        run: echo "::set-output name=tag::${{ steps.get_version.outputs.version }}-$(echo ${{ github.sha }} | head -c 7)"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
