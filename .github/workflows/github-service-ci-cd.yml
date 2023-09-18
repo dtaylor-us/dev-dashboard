@@ -38,7 +38,7 @@ jobs:
         id: get_version
         run: |
           cd ./github-service
-          echo "::set-output name=version::$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)"
+          echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
 
       # Build a tag combining the Maven project version and a shortened commit SHA
       - name: Build Docker tag
