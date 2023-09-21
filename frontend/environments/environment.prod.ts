@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiHost: 'http://134.209.140.43/' // Production API host
+  apiHost: 'https://api.dtaylor-us.info/' // Production API host
 };
